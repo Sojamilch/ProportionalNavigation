@@ -45,18 +45,19 @@ public class MissileSpawner : MonoBehaviour
 
     void ConfigureMissile(Missile missileScript)
     {
+        float fov = GetSliderValue("FOV");
         float proxyFuse = GetSliderValue("Proxy Fuse");
         float acceleration = GetSliderValue("Acceleration");
         float maxSpeed = GetSliderValue("Max Speed");
         float turnRate = GetSliderValue("Turn Rate");
+        
 
         TMP_Dropdown dropdown = GameObject.Find("Guidance Modes").GetComponent<TMP_Dropdown>();
         
-
-        GuidanceModes guidanceMode = (GuidanceModes)Enum.Parse(typeof(GuidanceModes), dropdown.options[dropdown.value].text);
+        GuidanceModes guidanceMode = (GuidanceModes)dropdown.value;
 
         missileScript.target = target;
-        missileScript.fieldOfView = 120;
+        missileScript.fieldOfView = fov;
         missileScript.proximityFuseRange = proxyFuse;
         missileScript.acceleration = acceleration;
         missileScript.maxSpeed = maxSpeed;
