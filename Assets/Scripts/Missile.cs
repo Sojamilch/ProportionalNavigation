@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 
-public enum GuidanceModes { LineOfSight, Simple, True,}
+public enum GuidanceModes { True, Simple, LineOfSight  }
 public class Missile : MonoBehaviour
 {
 
@@ -33,7 +33,6 @@ public class Missile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         rb = GetComponent<Rigidbody>();
     }
 
@@ -60,8 +59,6 @@ public class Missile : MonoBehaviour
                     {
                         Vector3 newDirection = Vector3.zero;
 
-                        Debug.Log(mode);
-
                         switch (mode)
                         {
                             case GuidanceModes.True:
@@ -73,7 +70,6 @@ public class Missile : MonoBehaviour
                             case GuidanceModes.LineOfSight:
                                 newDirection = LineOfSightNavigation();
                                 break;
-
                         }
 
                         Steer(newDirection);
@@ -129,7 +125,6 @@ public class Missile : MonoBehaviour
 
         return requiredAcceleration;
 
-
     }
 
     Vector3 LineOfSightNavigation()
@@ -167,7 +162,6 @@ public class Missile : MonoBehaviour
         if (angle < fieldOfView)
         {
             LogMessage("Tracking" + " \n Angle: " + angle + "\n Distance:  " + distance);
-            // Debug.Log();
             return true;
         }
         else
@@ -176,16 +170,11 @@ public class Missile : MonoBehaviour
             LogMessage("Lost" + " \n Angle: " + angle + "\n Distance:  " + distance);
             return false;
         }
-
-
-
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-
         Destroy(gameObject);
-
     }
 
     void Detonate()
@@ -199,7 +188,6 @@ public class Missile : MonoBehaviour
     {
         TextMeshProUGUI textbox = GameObject.Find("Missile Log").GetComponent<TextMeshProUGUI>();
         textbox.text = message;
-
 
     }
 }
