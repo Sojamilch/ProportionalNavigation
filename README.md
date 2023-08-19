@@ -2,12 +2,12 @@
 
   This is a unity demo sandbox I made while researching the basics of missile guidance systems.
   It implements: 
-  - Augmented Proportional Navigation
-    [](TPN.png)
-  - Simplified Proportional Navigation
-    [](SPN.png)
-  - Line of sight Navigation
-    [](LOSN.png)
+  - Augmented Proportional Navigation\
+    ![Augmented Proportional Navigation](TPN.png)
+  - Simplified Proportional Navigation\
+    ![Augmented Proportional Navigation](SPN.png)
+  - Line of sight Navigation\
+    ![Augmented Proportional Navigation](LOSN.png)
 
 
 
